@@ -27,6 +27,12 @@ PLATFORMS = {
             "@platforms//cpu:arm64",
         ],
     ),
+    "linux-riscv64": struct(
+        compatible_with = [
+            "@platforms//os:linux",
+            "@platforms//cpu:riscv64",
+        ],
+    ),
     "linux-ppc64": struct(
         compatible_with = [
             "@platforms//os:linux",

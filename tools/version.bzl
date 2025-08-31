@@ -2,4 +2,4 @@
 
 VERSION = "v0.5.9"
 
-REPO_URL = "rmohr/bazeldnf"
+REPO_URL = "ffgan/bazeldnf"

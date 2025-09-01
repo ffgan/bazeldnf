@@ -15,7 +15,7 @@ def build_for_platform(name, value):
         constraint_values = value.compatible_with,
         visibility = ["//visibility:public"],
     )
-
+    print("ready to build %s "%name)
     # create a binary for the target platform
     build = "bazeldnf_{}_build".format(name)
     platform_transition_filegroup(
@@ -23,6 +23,7 @@ def build_for_platform(name, value):
         srcs = ["@bazeldnf//cmd"],
         target_platform = ":{}".format(name),
     )
+    print("finish build for %s"%nane)
 
     _version = VERSION
 

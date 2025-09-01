@@ -34,11 +34,13 @@ def build_for_platform(name, value):
         version = _version,
         platform = name,
     )
+    print("ready to copy %s"%artifact)
     copy_file(
         name = "copy_{}".format(build),
         src = build,
         out = artifact,
     )
+    print("copy done %s"%artifact)
 
     # compuate the sha256 of the binary
     hashes(

@@ -56,7 +56,7 @@ def build_for_all_platforms(name, **kwargs):
 
     for k, v in PLATFORMS.items():
         outs.extend(build_for_platform(name = k, value = v))
-
+    print("prepare to write source file")
     write_source_files(
         name = name,
         files = dict([["latest/{}".format(x), ":{0}".format(x)] for x in outs]),
@@ -64,3 +64,4 @@ def build_for_all_platforms(name, **kwargs):
         check_that_out_file_exists = False,
         **kwargs
     )
+    print("write source done")

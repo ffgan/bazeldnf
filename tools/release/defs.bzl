@@ -23,7 +23,7 @@ def build_for_platform(name, value):
         srcs = ["@bazeldnf//cmd"],
         target_platform = ":{}".format(name),
     )
-    print("finish build for %s"%nane)
+    print("finish build for %s"%name)
 
     _version = VERSION
 

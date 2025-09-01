@@ -22,8 +22,13 @@ bazel_dep(name = "platforms", version = "0.0.11")
 bazel_dep(name = "bazel_features", version = "1.26.0")
 
 # if someone wants to build the bazeldnf toolchain from sources needs this set of dependencies
-bazel_dep(name = "gazelle", version = "0.42.0")
-bazel_dep(name = "rules_go", version = "0.53.0")
+bazel_dep(name = "gazelle", version = "0.45.0")
+bazel_dep(name = "rules_go", version = "fff03cb69658d56a349451b3dc43895786833ab9")
+git_override(
+    module_name = "rules_go",
+    commit = "fff03cb69658d56a349451b3dc43895786833ab9",
+    remote = "https://github.com/ffgan/rules_go.git",
+)
 
 go_sdk = use_extension("@rules_go//go:extensions.bzl", "go_sdk", dev_dependency = True)
 go_sdk.download(version = "1.24.1")

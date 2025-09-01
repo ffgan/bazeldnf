@@ -15,7 +15,7 @@ def build_for_platform(name, value):
         constraint_values = value.compatible_with,
         visibility = ["//visibility:public"],
     )
-    print("ready to build %s "%name)
+
     # create a binary for the target platform
     build = "bazeldnf_{}_build".format(name)
     platform_transition_filegroup(
@@ -23,7 +23,6 @@ def build_for_platform(name, value):
         srcs = ["@bazeldnf//cmd"],
         target_platform = ":{}".format(name),
     )
-    print("finish build for %s"%name)
 
     _version = VERSION
 
@@ -34,13 +33,11 @@ def build_for_platform(name, value):
         version = _version,
         platform = name,
     )
-    print("ready to copy %s"%artifact)
     copy_file(
         name = "copy_{}".format(build),
         src = build,
         out = artifact,
     )
-    print("copy done %s"%artifact)
 
     # compuate the sha256 of the binary
     hashes(
@@ -56,7 +53,6 @@ def build_for_all_platforms(name, **kwargs):
 
     for k, v in PLATFORMS.items():
         outs.extend(build_for_platform(name = k, value = v))
-    print("prepare to write source file")
     write_source_files(
         name = name,
         files = dict([["latest/{}".format(x), ":{0}".format(x)] for x in outs]),
@@ -64,4 +60,3 @@ def build_for_all_platforms(name, **kwargs):
         check_that_out_file_exists = False,
         **kwargs
     )
-    print("write source done")

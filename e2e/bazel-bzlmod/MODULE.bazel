@@ -9,7 +9,11 @@ local_path_override(
 )
 
 bazel_dep(name = "rules_pkg", version = "1.0.1")
-
+git_override(
+    module_name = "rules_go",
+    commit = "fff03cb69658d56a349451b3dc43895786833ab9",
+    remote = "https://github.com/ffgan/rules_go.git",
+)
 bazeldnf = use_extension("@bazeldnf//bazeldnf:extensions.bzl", "bazeldnf")
 bazeldnf.rpm(
     name = "libvirt-libs-11.0.0-1.fc42.x86_64.rpm",

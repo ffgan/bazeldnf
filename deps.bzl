@@ -5,11 +5,11 @@ load(
     _rpmtree = "rpmtree",
     _tar2files = "tar2files",
     _xattrs = "xattrs",
+    _rpm = "rpm",
 )
 load(
     "@bazeldnf//bazeldnf:deps.bzl",
     _bazeldnf_dependencies = "bazeldnf_dependencies",
-    _rpm = "rpm",
 )
 
 def rpm(*args, **kwargs):

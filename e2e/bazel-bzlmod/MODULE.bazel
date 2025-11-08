@@ -10,6 +10,15 @@ local_path_override(
 
 bazel_dep(name = "rules_pkg", version = "1.0.1")
 
+archive_override(
+    module_name = "rules_go",
+    integrity = "sha256-aK9Uy5f73uXl6P6NIQ0VpRj51iq/1xYgw+r/Oyal/4Y=",
+    urls = [
+        "https://mirror.bazel.build/github.com/bazel-contrib/rules_go/releases/download/v0.59.0/rules_go-v0.59.0.zip",
+        "https://github.com/bazel-contrib/rules_go/releases/download/v0.59.0/rules_go-v0.59.0.zip",
+    ],
+)
+
 bazeldnf = use_extension("@bazeldnf//bazeldnf:extensions.bzl", "bazeldnf")
 bazeldnf.rpm(
     name = "libvirt-libs-11.0.0-1.fc42.x86_64.rpm",

@@ -62,7 +62,7 @@ func Test_Capabilities(t *testing.T) {
 		},
 		{
 			name:         "should set cap_net_admin",
-			entry:        "./cap_net_admin", 
+			entry:        "./cap_net_admin",
 			capabilities: []string{"cap_net_admin"},
 		},
 		{

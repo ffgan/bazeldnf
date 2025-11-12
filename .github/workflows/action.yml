@@ -2,9 +2,9 @@ name: "build and test"
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  #   branches: [ main ]
+  # pull_request:
+  #   branches: [ main ]
 
 concurrency:
   # Cancel previous actions from the same PR or branch except 'main' branch.
